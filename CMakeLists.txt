@@ -3,7 +3,9 @@ project(TetrisClone)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(TetrisClone main.cpp)
+add_executable(TetrisClone src/main.cpp
+        src/LPiece.cpp
+        src/LPiece.h)
 
 target_include_directories(TetrisClone PRIVATE "${PROJECT_BINARY_DIR}")
 

@@ -174,29 +174,53 @@ TetrisClone/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetrisClone.dir/build.make CMakeFiles/TetrisClone.dir/build
 .PHONY : TetrisClone/fast
 
-main.o: main.cpp.o
-.PHONY : main.o
+src/LPiece.o: src/LPiece.cpp.o
+.PHONY : src/LPiece.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetrisClone.dir/build.make CMakeFiles/TetrisClone.dir/main.cpp.o
-.PHONY : main.cpp.o
+src/LPiece.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetrisClone.dir/build.make CMakeFiles/TetrisClone.dir/src/LPiece.cpp.o
+.PHONY : src/LPiece.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+src/LPiece.i: src/LPiece.cpp.i
+.PHONY : src/LPiece.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetrisClone.dir/build.make CMakeFiles/TetrisClone.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/LPiece.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetrisClone.dir/build.make CMakeFiles/TetrisClone.dir/src/LPiece.cpp.i
+.PHONY : src/LPiece.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+src/LPiece.s: src/LPiece.cpp.s
+.PHONY : src/LPiece.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetrisClone.dir/build.make CMakeFiles/TetrisClone.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/LPiece.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetrisClone.dir/build.make CMakeFiles/TetrisClone.dir/src/LPiece.cpp.s
+.PHONY : src/LPiece.cpp.s
+
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetrisClone.dir/build.make CMakeFiles/TetrisClone.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetrisClone.dir/build.make CMakeFiles/TetrisClone.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetrisClone.dir/build.make CMakeFiles/TetrisClone.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -211,9 +235,12 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... TetrisClone"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... src/LPiece.o"
+	@echo "... src/LPiece.i"
+	@echo "... src/LPiece.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 

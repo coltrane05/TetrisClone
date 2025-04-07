@@ -69,28 +69,44 @@ include CMakeFiles/TetrisClone.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/TetrisClone.dir/flags.make
 
-CMakeFiles/TetrisClone.dir/main.cpp.o: CMakeFiles/TetrisClone.dir/flags.make
-CMakeFiles/TetrisClone.dir/main.cpp.o: ../main.cpp
-CMakeFiles/TetrisClone.dir/main.cpp.o: CMakeFiles/TetrisClone.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/crapo/Programming/TetrisClone/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TetrisClone.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TetrisClone.dir/main.cpp.o -MF CMakeFiles/TetrisClone.dir/main.cpp.o.d -o CMakeFiles/TetrisClone.dir/main.cpp.o -c /mnt/c/Users/crapo/Programming/TetrisClone/main.cpp
+CMakeFiles/TetrisClone.dir/src/main.cpp.o: CMakeFiles/TetrisClone.dir/flags.make
+CMakeFiles/TetrisClone.dir/src/main.cpp.o: ../src/main.cpp
+CMakeFiles/TetrisClone.dir/src/main.cpp.o: CMakeFiles/TetrisClone.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/crapo/Programming/TetrisClone/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TetrisClone.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TetrisClone.dir/src/main.cpp.o -MF CMakeFiles/TetrisClone.dir/src/main.cpp.o.d -o CMakeFiles/TetrisClone.dir/src/main.cpp.o -c /mnt/c/Users/crapo/Programming/TetrisClone/src/main.cpp
 
-CMakeFiles/TetrisClone.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TetrisClone.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/crapo/Programming/TetrisClone/main.cpp > CMakeFiles/TetrisClone.dir/main.cpp.i
+CMakeFiles/TetrisClone.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TetrisClone.dir/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/crapo/Programming/TetrisClone/src/main.cpp > CMakeFiles/TetrisClone.dir/src/main.cpp.i
 
-CMakeFiles/TetrisClone.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TetrisClone.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/crapo/Programming/TetrisClone/main.cpp -o CMakeFiles/TetrisClone.dir/main.cpp.s
+CMakeFiles/TetrisClone.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TetrisClone.dir/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/crapo/Programming/TetrisClone/src/main.cpp -o CMakeFiles/TetrisClone.dir/src/main.cpp.s
+
+CMakeFiles/TetrisClone.dir/src/LPiece.cpp.o: CMakeFiles/TetrisClone.dir/flags.make
+CMakeFiles/TetrisClone.dir/src/LPiece.cpp.o: ../src/LPiece.cpp
+CMakeFiles/TetrisClone.dir/src/LPiece.cpp.o: CMakeFiles/TetrisClone.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/crapo/Programming/TetrisClone/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/TetrisClone.dir/src/LPiece.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TetrisClone.dir/src/LPiece.cpp.o -MF CMakeFiles/TetrisClone.dir/src/LPiece.cpp.o.d -o CMakeFiles/TetrisClone.dir/src/LPiece.cpp.o -c /mnt/c/Users/crapo/Programming/TetrisClone/src/LPiece.cpp
+
+CMakeFiles/TetrisClone.dir/src/LPiece.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TetrisClone.dir/src/LPiece.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /mnt/c/Users/crapo/Programming/TetrisClone/src/LPiece.cpp > CMakeFiles/TetrisClone.dir/src/LPiece.cpp.i
+
+CMakeFiles/TetrisClone.dir/src/LPiece.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TetrisClone.dir/src/LPiece.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /mnt/c/Users/crapo/Programming/TetrisClone/src/LPiece.cpp -o CMakeFiles/TetrisClone.dir/src/LPiece.cpp.s
 
 # Object files for target TetrisClone
 TetrisClone_OBJECTS = \
-"CMakeFiles/TetrisClone.dir/main.cpp.o"
+"CMakeFiles/TetrisClone.dir/src/main.cpp.o" \
+"CMakeFiles/TetrisClone.dir/src/LPiece.cpp.o"
 
 # External object files for target TetrisClone
 TetrisClone_EXTERNAL_OBJECTS =
 
-TetrisClone: CMakeFiles/TetrisClone.dir/main.cpp.o
+TetrisClone: CMakeFiles/TetrisClone.dir/src/main.cpp.o
+TetrisClone: CMakeFiles/TetrisClone.dir/src/LPiece.cpp.o
 TetrisClone: CMakeFiles/TetrisClone.dir/build.make
 TetrisClone: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
 TetrisClone: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1
@@ -98,7 +114,7 @@ TetrisClone: /usr/lib/x86_64-linux-gnu/libsfml-audio.so.2.5.1
 TetrisClone: /usr/lib/x86_64-linux-gnu/libsfml-network.so.2.5.1
 TetrisClone: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
 TetrisClone: CMakeFiles/TetrisClone.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/crapo/Programming/TetrisClone/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable TetrisClone"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/crapo/Programming/TetrisClone/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable TetrisClone"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TetrisClone.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
