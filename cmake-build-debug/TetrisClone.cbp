@@ -130,6 +130,12 @@
 		<Unit filename="/mnt/c/Users/crapo/Programming/TetrisClone/src/LPiece.h">
 			<Option target="TetrisClone"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/crapo/Programming/TetrisClone/src/TetrisPiece.cpp">
+			<Option target="TetrisClone"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/crapo/Programming/TetrisClone/src/TetrisPiece.h">
+			<Option target="TetrisClone"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/crapo/Programming/TetrisClone/src/main.cpp">
 			<Option target="TetrisClone"/>
 		</Unit>

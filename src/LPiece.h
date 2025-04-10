@@ -4,25 +4,20 @@
 
 #ifndef TETRISCLONE_LPIECE_H
 #define TETRISCLONE_LPIECE_H
+
+#include "TetrisPiece.h"
 #include <SFML/Graphics.hpp>
 #include <vector>
 
 
-class LPiece {
+class LPiece : public TetrisPiece {
 private:
-    float x;
-    float y;
-    std::vector<sf::Sprite> sprites;
-
+    int rotationState;
 public:
     LPiece(float posX, float posY, sf::Texture &blockTexture);
 
-    void draw(sf::RenderWindow &window);
-//    void moveUp();
-//    void moveDown();
-//    void moveLeft();
-//    void moveRight();
-//    void rotate();
+    void CWRotate();
+    void CCWRotate();
 };
 
 

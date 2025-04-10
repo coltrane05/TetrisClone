@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/TetrisClone.dir/src/LPiece.cpp.o"
   "CMakeFiles/TetrisClone.dir/src/LPiece.cpp.o.d"
+  "CMakeFiles/TetrisClone.dir/src/TetrisPiece.cpp.o"
+  "CMakeFiles/TetrisClone.dir/src/TetrisPiece.cpp.o.d"
   "CMakeFiles/TetrisClone.dir/src/main.cpp.o"
   "CMakeFiles/TetrisClone.dir/src/main.cpp.o.d"
   "TetrisClone"
