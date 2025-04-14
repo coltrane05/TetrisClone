@@ -124,6 +124,24 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/mnt/c/Users/crapo/Programming/TetrisClone/src/Cell.cpp">
+			<Option target="TetrisClone"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/crapo/Programming/TetrisClone/src/Cell.h">
+			<Option target="TetrisClone"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/crapo/Programming/TetrisClone/src/EventHandler.cpp">
+			<Option target="TetrisClone"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/crapo/Programming/TetrisClone/src/EventHandler.h">
+			<Option target="TetrisClone"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/crapo/Programming/TetrisClone/src/Grid.cpp">
+			<Option target="TetrisClone"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/crapo/Programming/TetrisClone/src/Grid.h">
+			<Option target="TetrisClone"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/crapo/Programming/TetrisClone/src/LPiece.cpp">
 			<Option target="TetrisClone"/>
 		</Unit>

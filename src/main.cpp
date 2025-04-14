@@ -4,11 +4,13 @@
 #include <string>
 #include <vector>
 #include "LPiece.h"
+#include "Grid.h"
+#include "EventHandler.h"
 
 int main() {
     // Create the main window
-    std::vector<sf::VideoMode> videoModes = sf::VideoMode::getFullscreenModes();
-    sf::VideoMode mode = videoModes[1];
+//    std::vector<sf::VideoMode> videoModes = sf::VideoMode::getFullscreenModes();
+    sf::VideoMode mode(2000,1200);
     sf::RenderWindow window(mode, "SFML window");
 
     // Create the texture that will be mapped to all block sprites
@@ -17,42 +19,39 @@ int main() {
         std::cout << "Did not work bruh..." << std::endl;
     }
 
+    sf::Sprite sampleBrick(texture);
+    sampleBrick.scale(0.04f, 0.04f);
+
+    sf::Texture backgroundTexture;
+    if (!backgroundTexture.loadFromFile("assets/background1.jpg")) {
+        std::cout << "Could not load background image..." << std::endl;
+    }
+    backgroundTexture.setSmooth(true);
+    sf::Sprite background(backgroundTexture);
+    background.scale(0.4f, 0.4f);
+
     texture.setSmooth(true);
 
-    LPiece newLPiece(200, 200, texture);
+
+    float blockHeight = sampleBrick.getGlobalBounds().height;
+    float blockWidth = sampleBrick.getGlobalBounds().width;
+    float gridPosX = 2000 / 2.0 - (blockWidth * 10) / 2;
+    float gridPosY = 100;
+    auto* newLPiece = new LPiece(gridPosX + blockWidth * 3, gridPosY - blockHeight * 1, texture);
+    Grid tetrisGrid(gridPosX, gridPosY, blockWidth, blockHeight);
+    EventHandler eventHandler;
 
     while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            // Close window: exit
-            if (event.type == sf::Event::Closed)
-                window.close();
+        eventHandler.handleEvents(window, newLPiece);
 
-            if (event.type == sf::Event::KeyPressed) {
-                if (event.key.code == sf::Keyboard::S) {
-                    newLPiece.moveDown();
-                }
-                else if (event.key.code == sf::Keyboard::D) {
-                    newLPiece.moveRight();
-                }
-                else if (event.key.code == sf::Keyboard::A) {
-                    newLPiece.moveLeft();
-                }
-                else if (event.key.code == sf::Keyboard::E) {
-                    newLPiece.CWRotate();
-                }
-                else if (event.key.code == sf::Keyboard::Q) {
-                    newLPiece.CCWRotate();
-                }
-            }
-
-        }
         window.clear();
-        window.resetGLStates();
-        newLPiece.draw(window);
+        window.draw(background);
+        tetrisGrid.draw(window);
+        newLPiece->draw(window);
         window.display();
 
     }
+    delete newLPiece;
 
 
 

@@ -174,6 +174,78 @@ TetrisClone/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetrisClone.dir/build.make CMakeFiles/TetrisClone.dir/build
 .PHONY : TetrisClone/fast
 
+src/Cell.o: src/Cell.cpp.o
+.PHONY : src/Cell.o
+
+# target to build an object file
+src/Cell.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetrisClone.dir/build.make CMakeFiles/TetrisClone.dir/src/Cell.cpp.o
+.PHONY : src/Cell.cpp.o
+
+src/Cell.i: src/Cell.cpp.i
+.PHONY : src/Cell.i
+
+# target to preprocess a source file
+src/Cell.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetrisClone.dir/build.make CMakeFiles/TetrisClone.dir/src/Cell.cpp.i
+.PHONY : src/Cell.cpp.i
+
+src/Cell.s: src/Cell.cpp.s
+.PHONY : src/Cell.s
+
+# target to generate assembly for a file
+src/Cell.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetrisClone.dir/build.make CMakeFiles/TetrisClone.dir/src/Cell.cpp.s
+.PHONY : src/Cell.cpp.s
+
+src/EventHandler.o: src/EventHandler.cpp.o
+.PHONY : src/EventHandler.o
+
+# target to build an object file
+src/EventHandler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetrisClone.dir/build.make CMakeFiles/TetrisClone.dir/src/EventHandler.cpp.o
+.PHONY : src/EventHandler.cpp.o
+
+src/EventHandler.i: src/EventHandler.cpp.i
+.PHONY : src/EventHandler.i
+
+# target to preprocess a source file
+src/EventHandler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetrisClone.dir/build.make CMakeFiles/TetrisClone.dir/src/EventHandler.cpp.i
+.PHONY : src/EventHandler.cpp.i
+
+src/EventHandler.s: src/EventHandler.cpp.s
+.PHONY : src/EventHandler.s
+
+# target to generate assembly for a file
+src/EventHandler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetrisClone.dir/build.make CMakeFiles/TetrisClone.dir/src/EventHandler.cpp.s
+.PHONY : src/EventHandler.cpp.s
+
+src/Grid.o: src/Grid.cpp.o
+.PHONY : src/Grid.o
+
+# target to build an object file
+src/Grid.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetrisClone.dir/build.make CMakeFiles/TetrisClone.dir/src/Grid.cpp.o
+.PHONY : src/Grid.cpp.o
+
+src/Grid.i: src/Grid.cpp.i
+.PHONY : src/Grid.i
+
+# target to preprocess a source file
+src/Grid.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetrisClone.dir/build.make CMakeFiles/TetrisClone.dir/src/Grid.cpp.i
+.PHONY : src/Grid.cpp.i
+
+src/Grid.s: src/Grid.cpp.s
+.PHONY : src/Grid.s
+
+# target to generate assembly for a file
+src/Grid.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TetrisClone.dir/build.make CMakeFiles/TetrisClone.dir/src/Grid.cpp.s
+.PHONY : src/Grid.cpp.s
+
 src/LPiece.o: src/LPiece.cpp.o
 .PHONY : src/LPiece.o
 
@@ -259,6 +331,15 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... TetrisClone"
+	@echo "... src/Cell.o"
+	@echo "... src/Cell.i"
+	@echo "... src/Cell.s"
+	@echo "... src/EventHandler.o"
+	@echo "... src/EventHandler.i"
+	@echo "... src/EventHandler.s"
+	@echo "... src/Grid.o"
+	@echo "... src/Grid.i"
+	@echo "... src/Grid.s"
 	@echo "... src/LPiece.o"
 	@echo "... src/LPiece.i"
 	@echo "... src/LPiece.s"

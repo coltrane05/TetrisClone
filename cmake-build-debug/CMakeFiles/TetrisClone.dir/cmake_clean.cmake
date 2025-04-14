@@ -1,4 +1,10 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/TetrisClone.dir/src/Cell.cpp.o"
+  "CMakeFiles/TetrisClone.dir/src/Cell.cpp.o.d"
+  "CMakeFiles/TetrisClone.dir/src/EventHandler.cpp.o"
+  "CMakeFiles/TetrisClone.dir/src/EventHandler.cpp.o.d"
+  "CMakeFiles/TetrisClone.dir/src/Grid.cpp.o"
+  "CMakeFiles/TetrisClone.dir/src/Grid.cpp.o.d"
   "CMakeFiles/TetrisClone.dir/src/LPiece.cpp.o"
   "CMakeFiles/TetrisClone.dir/src/LPiece.cpp.o.d"
   "CMakeFiles/TetrisClone.dir/src/TetrisPiece.cpp.o"

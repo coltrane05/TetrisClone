@@ -7,7 +7,13 @@ add_executable(TetrisClone src/main.cpp
         src/LPiece.cpp
         src/LPiece.h
         src/TetrisPiece.cpp
-        src/TetrisPiece.h)
+        src/TetrisPiece.h
+        src/Grid.cpp
+        src/Grid.h
+        src/Cell.cpp
+        src/Cell.h
+        src/EventHandler.cpp
+        src/EventHandler.h)
 
 target_include_directories(TetrisClone PRIVATE "${PROJECT_BINARY_DIR}")
 

@@ -1,5 +1,5 @@
 //
-// Created by crapo on 4/6/2025.
+// Created by Colton Crapo on 4/6/2025.
 //
 
 #include "LPiece.h"
@@ -7,19 +7,28 @@
 LPiece::LPiece(float posX, float posY, sf::Texture &blockTexture) {
     x = posX;
     y = posY;
-    rotationState = 0;
+    rotationState = 3;
     for (int i = 0; i < 4; i++) {
         sprites.push_back(sf::Sprite(blockTexture));
-        sprites[i].scale(0.02f, 0.02f);
+        sprites[i].scale(0.04f, 0.04f);
         sprites[i].setColor(sf::Color::Cyan);
     }
 
+
     sprites[0].setPosition(x, y);
+    spriteCoordinates.emplace_back(3, -1);
     blockHeight = sprites[0].getGlobalBounds().height;
     blockWidth = sprites[0].getGlobalBounds().width;
-    sprites[1].setPosition(x, y + blockHeight);
-    sprites[2].setPosition(x, y + blockHeight * 2);
-    sprites[3].setPosition(x + blockWidth, y + blockHeight * 2);
+
+    sprites[1].setPosition(x + blockWidth, y);
+    spriteCoordinates.emplace_back(4, -1);
+
+    sprites[2].setPosition(x + blockWidth * 2, y);
+    spriteCoordinates.emplace_back(5, -1);
+
+    sprites[3].setPosition(x + blockWidth * 2, y - blockHeight);
+    spriteCoordinates.emplace_back(5, -2);
+
 }
 
 void LPiece::CWRotate() {

@@ -16,8 +16,8 @@ private:
 public:
     LPiece(float posX, float posY, sf::Texture &blockTexture);
 
-    void CWRotate();
-    void CCWRotate();
+    void CWRotate() override;
+    void CCWRotate() override;
 };
 
 
