@@ -3,6 +3,7 @@
 //
 
 #include "Cell.h"
+#include <iostream>
 
 Cell::Cell(float x, float y, int coordinateX, int coordinateY, sf::Vector2f size, float thickness, sf::Color fill, sf::Color outline) {
     gridX = coordinateX;

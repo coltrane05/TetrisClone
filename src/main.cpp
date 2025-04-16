@@ -9,7 +9,6 @@
 
 int main() {
     // Create the main window
-//    std::vector<sf::VideoMode> videoModes = sf::VideoMode::getFullscreenModes();
     sf::VideoMode mode(2000,1200);
     sf::RenderWindow window(mode, "SFML window");
 
@@ -42,7 +41,7 @@ int main() {
     EventHandler eventHandler;
 
     while (window.isOpen()) {
-        eventHandler.handleEvents(window, newLPiece);
+        eventHandler.handleEvents(window, newLPiece, tetrisGrid);
 
         window.clear();
         window.draw(background);
@@ -52,8 +51,6 @@ int main() {
 
     }
     delete newLPiece;
-
-
 
     return 0;
 }

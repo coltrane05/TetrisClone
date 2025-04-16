@@ -17,9 +17,10 @@ private:
     float y;
     float cellWidth;
     float cellHeight;
-    std::vector<std::vector<Cell>> TetrisGrid;
 public:
     std::map<std::tuple<float, float>, std::tuple<int, int>> positionMap;
+    std::vector<std::vector<Cell>> tetrisGrid;
+
     Grid(float posX, float posY, float cellWidth, float cellHeight);
 
     void draw(sf::RenderWindow &window);

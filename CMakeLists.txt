@@ -23,4 +23,4 @@ target_link_libraries(TetrisClone sfml-graphics sfml-system sfml-window sfml-aud
 
 install(TARGETS TetrisClone DESTINATION bin)
 
-file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY assets DESTINATION ${PROJECT_BINARY_DIR})
