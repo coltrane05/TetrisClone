@@ -2,12 +2,29 @@
 // Created by Colton Crapo on 4/6/2025.
 //
 
+#include <iostream>
 #include "LPiece.h"
 
 LPiece::LPiece(float posX, float posY, sf::Texture &blockTexture) {
     x = posX;
     y = posY;
-    rotationState = 3;
+    rotationState = 0;
+    transitionStates0[0] = {1.0, -1.0}; // {1.0, 1.0}
+    transitionStates0[1] = {1.0, 1.0};  // {-1.0, 1.0}
+    transitionStates0[2] = {-1.0, 1.0}; // {-1.0, -1.0}
+    transitionStates0[3] = {-1.0, -1.0};// {1.0, -1.0}
+
+    transitionStates2[0] = {-1.0, 1.0};
+    transitionStates2[1] = {-1.0, -1.0};
+    transitionStates2[2] = {1.0, -1.0};
+    transitionStates2[3] = {1.0, 1.0};
+
+    transitionStates3[0] = {0.0, 2.0};
+    transitionStates3[1] = {-2.0, 0.0};
+    transitionStates3[2] = {0.0, -2.0};
+    transitionStates3[3] = {2.0, 0.0};
+
+
     for (int i = 0; i < 4; i++) {
         sprites.push_back(sf::Sprite(blockTexture));
         sprites[i].scale(0.04f, 0.04f);
@@ -31,73 +48,73 @@ LPiece::LPiece(float posX, float posY, sf::Texture &blockTexture) {
 
 }
 
-void LPiece::CWRotate() {
-    if (rotationState == 0) {
-        rotationState++;
-        sprites[0].move(blockWidth, blockHeight);
-        sprites[2].move(-blockWidth, -blockHeight);
-        sprites[3].move(-blockWidth * 2, 0);
-        x = sprites[2].getPosition().x;
-        y = sprites[2].getPosition().y;
-    }
-    else if (rotationState == 1) {
-        rotationState++;
-        sprites[0].move(-blockWidth, blockHeight);
-        sprites[2].move(blockWidth, -blockHeight);
-        sprites[3].move(0, -blockHeight * 2);
-        x = sprites[3].getPosition().x;
-        y = sprites[3].getPosition().y;
-    }
-    else if (rotationState == 2) {
-        rotationState++;
-        sprites[0].move(-blockWidth, -blockHeight);
-        sprites[2].move(blockWidth, blockHeight);
-        sprites[3].move(blockWidth * 2, 0);
-        x = sprites[0].getPosition().x;
-        y = sprites[0].getPosition().y;
+void LPiece::CWRotate(Grid gameGrid) {
+    std::vector<float> movements0 = transitionStates0[rotationState];
+    std::vector<float> movements2 = transitionStates2[rotationState];
+    std::vector<float> movements3 = transitionStates3[rotationState];
+
+    sprites[0].move(blockWidth * movements0[0], blockHeight * movements0[1]);
+    spriteCoordinates[0].first += movements0[0];
+    spriteCoordinates[0].second += movements0[1];
+
+    sprites[2].move(blockWidth * movements2[0], blockHeight * movements2[1]);
+    spriteCoordinates[2].first += movements2[0];
+    spriteCoordinates[2].second += movements2[1];
+
+    sprites[3].move(blockWidth * movements3[0], blockHeight * movements3[1]);
+    spriteCoordinates[3].first += movements3[0];
+    spriteCoordinates[3].second += movements3[1];
+
+
+    if (CWWallKick(gameGrid)) {
+        rotationState = (rotationState + 1) % 4;
     }
     else {
-        rotationState = 0;
-        sprites[0].move(blockWidth, -blockHeight);
-        sprites[2].move(-blockWidth, blockHeight);
-        sprites[3].move(0, blockHeight * 2);
-        // not sure if this is necessary, but I will put it here just in case.
-        x = sprites[0].getPosition().x;
-        y = sprites[0].getPosition().y + blockHeight;
+        CWReverse();
     }
 }
 
-void LPiece::CCWRotate() {
-    if (rotationState == 0) {
+void LPiece::CWReverse() {
+    std::vector<float> movements0 = transitionStates0[(rotationState + 2) % 4];
+    std::vector<float> movements2 = transitionStates2[(rotationState + 2) % 4];
+    std::vector<float> movements3 = transitionStates3[(rotationState + 2) % 4];
+
+    sprites[0].move(blockWidth * movements0[0], blockHeight * movements0[1]);
+    spriteCoordinates[0].first += movements0[0];
+    spriteCoordinates[0].second += movements0[1];
+
+    sprites[2].move(blockWidth * movements2[0], blockHeight * movements2[1]);
+    spriteCoordinates[2].first += movements2[0];
+    spriteCoordinates[2].second += movements2[1];
+
+    sprites[3].move(blockWidth * movements3[0], blockHeight * movements3[1]);
+    spriteCoordinates[3].first += movements3[0];
+    spriteCoordinates[3].second += movements3[1];
+}
+
+void LPiece::CCWRotate(Grid gameGrid) {
+    std::vector<float> movements0 = transitionStates0[(rotationState + 1) % 4];
+    std::vector<float> movements2 = transitionStates2[(rotationState + 1) % 4];
+    std::vector<float> movements3 = transitionStates3[(rotationState + 1) % 4];
+
+    sprites[0].move(blockWidth * movements0[0], blockHeight * movements0[1]);
+    spriteCoordinates[0].first += movements0[0];
+    spriteCoordinates[0].second += movements0[1];
+
+    sprites[2].move(blockWidth * movements2[0], blockHeight * movements2[1]);
+    spriteCoordinates[2].first += movements2[0];
+    spriteCoordinates[2].second += movements2[1];
+
+    sprites[3].move(blockWidth * movements3[0], blockHeight * movements3[1]);
+    spriteCoordinates[3].first += movements3[0];
+    spriteCoordinates[3].second += movements3[1];
+
+    rotationState--;
+    if (rotationState == -1) {
         rotationState = 3;
-        sprites[0].move(-blockWidth, blockHeight);
-        sprites[2].move(blockWidth, -blockHeight);
-        sprites[3].move(0, -blockHeight * 2);
-        x = sprites[0].getPosition().x;
-        y = sprites[0].getPosition().y + blockHeight;
     }
-    else if (rotationState == 3) {
-        rotationState--;
-        sprites[0].move(blockWidth, blockHeight);
-        sprites[2].move(-blockWidth, -blockHeight);
-        sprites[3].move(-blockWidth * 2, 0);
-        x = sprites[3].getPosition().x;
-        y = sprites[3].getPosition().y;
-    }
-    else if (rotationState == 2) {
-        rotationState--;
-        sprites[0].move(blockWidth, -blockHeight);
-        sprites[2].move(-blockWidth, blockHeight);
-        sprites[3].move(0, blockHeight * 2);
-        x = sprites[2].getPosition().x;
-        y = sprites[2].getPosition().y;
-    }
-    else {
-        rotationState--;
-        sprites[0].move(-blockWidth, -blockHeight);
-        sprites[2].move(blockWidth, blockHeight);
-        sprites[3].move(blockWidth * 2, 0);
-        x = sprites[0].getPosition().x;
-        y = sprites[0].getPosition().y;
-    }
+}
+
+void LPiece::CCWReverse() {
+    return;
 }

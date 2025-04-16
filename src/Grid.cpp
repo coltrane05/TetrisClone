@@ -21,7 +21,7 @@ Grid::Grid(float posX, float posY, float cellWidth, float cellHeight) {
             row.emplace_back(x + j * cellWidth, y + i * cellHeight, j, i, size, 1, fillColor, outlineColor);
 
         }
-        TetrisGrid.push_back(row);
+        tetrisGrid.push_back(row);
     }
 
 }
@@ -29,7 +29,7 @@ Grid::Grid(float posX, float posY, float cellWidth, float cellHeight) {
 void Grid::draw(sf::RenderWindow &window) {
     for (int i = 0; i < 20; i++) {
         for (int j = 0; j < 10; j++) {
-            window.draw(TetrisGrid[i][j].getBox());
+            window.draw(tetrisGrid[i][j].getBox());
         }
     }
     sf::RectangleShape gridOutline;
@@ -67,5 +67,4 @@ void Grid::draw(sf::RenderWindow &window) {
     window.draw(gridOutline);
     window.draw(gridOutline2);
     window.draw(gridOutline3);
-
 }

@@ -4,7 +4,7 @@
 
 #include "EventHandler.h"
 
-void EventHandler::handleEvents(sf::RenderWindow &window, TetrisPiece* currentPiece) {
+void EventHandler::handleEvents(sf::RenderWindow &window, TetrisPiece* currentPiece, Grid gameGrid) {
     while (window.pollEvent(event)) {
         // Close window: exit
         if (event.type == sf::Event::Closed)
@@ -12,21 +12,20 @@ void EventHandler::handleEvents(sf::RenderWindow &window, TetrisPiece* currentPi
 
         if (event.type == sf::Event::KeyPressed) {
             if (event.key.code == sf::Keyboard::S) {
-                currentPiece->moveDown();
+                currentPiece->moveDown(gameGrid);
             }
             else if (event.key.code == sf::Keyboard::D) {
-                currentPiece->moveRight();
+                currentPiece->moveRight(gameGrid);
             }
             else if (event.key.code == sf::Keyboard::A) {
-                currentPiece->moveLeft();
+                currentPiece->moveLeft(gameGrid);
             }
             else if (event.key.code == sf::Keyboard::E) {
-                currentPiece->CWRotate();
+                currentPiece->CWRotate(gameGrid);
             }
             else if (event.key.code == sf::Keyboard::Q) {
-                currentPiece->CCWRotate();
+                currentPiece->CCWRotate(gameGrid);
             }
         }
-
     }
 }

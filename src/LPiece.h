@@ -8,16 +8,21 @@
 #include "TetrisPiece.h"
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <map>
 
 
 class LPiece : public TetrisPiece {
 private:
-    int rotationState;
+    std::map<int, std::vector<float>> transitionStates0;
+    std::map<int, std::vector<float>> transitionStates2;
+    std::map<int, std::vector<float>> transitionStates3;
 public:
     LPiece(float posX, float posY, sf::Texture &blockTexture);
 
-    void CWRotate() override;
-    void CCWRotate() override;
+    void CWRotate(Grid gameGrid) override;
+    void CCWRotate(Grid gameGrid) override;
+    void CWReverse() override;
+    void CCWReverse() override;
 };
 
 

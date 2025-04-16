@@ -298,7 +298,10 @@ CMakeFiles/TetrisClone.dir/src/Cell.cpp.o: ../src/Cell.cpp \
   /usr/include/SFML/Graphics/Glsl.inl \
   /usr/include/SFML/Graphics/Sprite.hpp \
   /usr/include/SFML/Graphics/Text.hpp \
-  /usr/include/SFML/Graphics/VertexBuffer.hpp
+  /usr/include/SFML/Graphics/VertexBuffer.hpp \
+  /usr/include/c++/11/iostream \
+  /usr/include/c++/11/istream \
+  /usr/include/c++/11/bits/istream.tcc
 
 CMakeFiles/TetrisClone.dir/src/EventHandler.cpp.o: ../src/EventHandler.cpp \
   /usr/include/stdc-predef.h \
@@ -598,7 +601,9 @@ CMakeFiles/TetrisClone.dir/src/EventHandler.cpp.o: ../src/EventHandler.cpp \
   /usr/include/SFML/Graphics/Sprite.hpp \
   /usr/include/SFML/Graphics/Text.hpp \
   /usr/include/SFML/Graphics/VertexBuffer.hpp \
-  ../src/TetrisPiece.h
+  ../src/TetrisPiece.h \
+  ../src/Grid.h \
+  ../src/Cell.h
 
 CMakeFiles/TetrisClone.dir/src/Grid.cpp.o: ../src/Grid.cpp \
   /usr/include/stdc-predef.h \
@@ -902,19 +907,7 @@ CMakeFiles/TetrisClone.dir/src/Grid.cpp.o: ../src/Grid.cpp \
 
 CMakeFiles/TetrisClone.dir/src/LPiece.cpp.o: ../src/LPiece.cpp \
   /usr/include/stdc-predef.h \
-  ../src/LPiece.h \
-  ../src/TetrisPiece.h \
-  /usr/include/SFML/Graphics.hpp \
-  /usr/include/SFML/Window.hpp \
-  /usr/include/SFML/System.hpp \
-  /usr/include/SFML/Config.hpp \
-  /usr/include/SFML/System/Clock.hpp \
-  /usr/include/SFML/System/Export.hpp \
-  /usr/include/SFML/System/Time.hpp \
-  /usr/include/SFML/System/Err.hpp \
-  /usr/include/c++/11/ostream \
-  /usr/include/c++/11/ios \
-  /usr/include/c++/11/iosfwd \
+  /usr/include/c++/11/iostream \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
   /usr/include/features.h \
@@ -927,6 +920,9 @@ CMakeFiles/TetrisClone.dir/src/LPiece.cpp.o: ../src/LPiece.cpp \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
   /usr/include/c++/11/pstl/pstl_config.h \
+  /usr/include/c++/11/ostream \
+  /usr/include/c++/11/ios \
+  /usr/include/c++/11/iosfwd \
   /usr/include/c++/11/bits/stringfwd.h \
   /usr/include/c++/11/bits/memoryfwd.h \
   /usr/include/c++/11/bits/postypes.h \
@@ -1087,6 +1083,18 @@ CMakeFiles/TetrisClone.dir/src/LPiece.cpp.o: ../src/LPiece.cpp \
   /usr/include/c++/11/bits/locale_facets.tcc \
   /usr/include/c++/11/bits/basic_ios.tcc \
   /usr/include/c++/11/bits/ostream.tcc \
+  /usr/include/c++/11/istream \
+  /usr/include/c++/11/bits/istream.tcc \
+  ../src/LPiece.h \
+  ../src/TetrisPiece.h \
+  /usr/include/SFML/Graphics.hpp \
+  /usr/include/SFML/Window.hpp \
+  /usr/include/SFML/System.hpp \
+  /usr/include/SFML/Config.hpp \
+  /usr/include/SFML/System/Clock.hpp \
+  /usr/include/SFML/System/Export.hpp \
+  /usr/include/SFML/System/Time.hpp \
+  /usr/include/SFML/System/Err.hpp \
   /usr/include/SFML/System/FileInputStream.hpp \
   /usr/include/SFML/System/InputStream.hpp \
   /usr/include/SFML/System/NonCopyable.hpp \
@@ -1198,7 +1206,9 @@ CMakeFiles/TetrisClone.dir/src/LPiece.cpp.o: ../src/LPiece.cpp \
   /usr/include/SFML/Graphics/Glsl.inl \
   /usr/include/SFML/Graphics/Sprite.hpp \
   /usr/include/SFML/Graphics/Text.hpp \
-  /usr/include/SFML/Graphics/VertexBuffer.hpp
+  /usr/include/SFML/Graphics/VertexBuffer.hpp \
+  ../src/Grid.h \
+  ../src/Cell.h
 
 CMakeFiles/TetrisClone.dir/src/TetrisPiece.cpp.o: ../src/TetrisPiece.cpp \
   /usr/include/stdc-predef.h \
@@ -1497,7 +1507,12 @@ CMakeFiles/TetrisClone.dir/src/TetrisPiece.cpp.o: ../src/TetrisPiece.cpp \
   /usr/include/SFML/Graphics/Glsl.inl \
   /usr/include/SFML/Graphics/Sprite.hpp \
   /usr/include/SFML/Graphics/Text.hpp \
-  /usr/include/SFML/Graphics/VertexBuffer.hpp
+  /usr/include/SFML/Graphics/VertexBuffer.hpp \
+  ../src/Grid.h \
+  ../src/Cell.h \
+  /usr/include/c++/11/iostream \
+  /usr/include/c++/11/istream \
+  /usr/include/c++/11/bits/istream.tcc
 
 CMakeFiles/TetrisClone.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/stdc-predef.h \
@@ -1806,10 +1821,6 @@ CMakeFiles/TetrisClone.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/EventHandler.h
 
 
-/usr/include/c++/11/bits/istream.tcc:
-
-/usr/include/c++/11/istream:
-
 ../src/main.cpp:
 
 ../src/TetrisPiece.cpp:
@@ -1821,6 +1832,10 @@ CMakeFiles/TetrisClone.dir/src/main.cpp.o: ../src/main.cpp \
 ../src/Grid.h:
 
 ../src/EventHandler.cpp:
+
+/usr/include/c++/11/bits/istream.tcc:
+
+/usr/include/c++/11/istream:
 
 /usr/include/SFML/Graphics/VertexBuffer.hpp:
 
