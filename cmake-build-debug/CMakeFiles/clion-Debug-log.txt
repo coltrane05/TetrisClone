@@ -1,5 +1,0 @@
-/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" -S /mnt/c/Users/crapo/Programming/TetrisClone -B /mnt/c/Users/crapo/Programming/TetrisClone/cmake-build-debug
--- Found SFML 2.5.1 in /usr/lib/x86_64-linux-gnu/cmake/SFML
--- Configuring done
--- Generating done
--- Build files have been written to: /mnt/c/Users/crapo/Programming/TetrisClone/cmake-build-debug
