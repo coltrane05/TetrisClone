@@ -109,12 +109,31 @@ void LPiece::CCWRotate(Grid gameGrid) {
     spriteCoordinates[3].first += movements3[0];
     spriteCoordinates[3].second += movements3[1];
 
-    rotationState--;
-    if (rotationState == -1) {
-        rotationState = 3;
+    if (CCWWallKick(gameGrid)) {
+        rotationState--;
+        if (rotationState == -1) {
+            rotationState = 3;
+        }
+    }
+    else {
+        CCWReverse();
     }
 }
 
 void LPiece::CCWReverse() {
-    return;
+    std::vector<float> movements0 = transitionStates0[(rotationState + 3) % 4];
+    std::vector<float> movements2 = transitionStates2[(rotationState + 3) % 4];
+    std::vector<float> movements3 = transitionStates3[(rotationState + 3) % 4];
+
+    sprites[0].move(blockWidth * movements0[0], blockHeight * movements0[1]);
+    spriteCoordinates[0].first += movements0[0];
+    spriteCoordinates[0].second += movements0[1];
+
+    sprites[2].move(blockWidth * movements2[0], blockHeight * movements2[1]);
+    spriteCoordinates[2].first += movements2[0];
+    spriteCoordinates[2].second += movements2[1];
+
+    sprites[3].move(blockWidth * movements3[0], blockHeight * movements3[1]);
+    spriteCoordinates[3].first += movements3[0];
+    spriteCoordinates[3].second += movements3[1];
 }

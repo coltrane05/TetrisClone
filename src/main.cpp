@@ -21,6 +21,7 @@ int main() {
     sf::Sprite sampleBrick(texture);
     sampleBrick.scale(0.04f, 0.04f);
 
+
     sf::Texture backgroundTexture;
     if (!backgroundTexture.loadFromFile("assets/background1.jpg")) {
         std::cout << "Could not load background image..." << std::endl;
@@ -30,7 +31,6 @@ int main() {
     background.scale(0.4f, 0.4f);
 
     texture.setSmooth(true);
-
 
     float blockHeight = sampleBrick.getGlobalBounds().height;
     float blockWidth = sampleBrick.getGlobalBounds().width;

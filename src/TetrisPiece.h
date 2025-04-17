@@ -31,12 +31,12 @@ public:
     void moveLeft(Grid gameGrid);
     void moveRight(Grid gameGrid);
     void moveDown(Grid gameGrid);
-    bool allBlocksVisibleHelper();
+    bool isBlockVisibleHelper();
     bool canMoveLeftHelper(Grid gameGrid);
     bool canMoveRightHelper(Grid gameGrid);
     bool canMoveDownHelper(Grid gameGrid);
     bool isBlockInBoundsHelper(int spriteIndex, std::pair<int, int> wallKickPair);
-    bool isBlockInUnoccupiedHelper(int spriteIndex, std::pair<int, int> wallKickPair, Grid gameGrid);
+    bool isCellUnoccupiedHelper(int spriteIndex, std::pair<int, int> wallKickPair, Grid gameGrid);
     float getBlockHeight() const;
     float getBlockWidth() const;
     virtual void CWRotate(Grid gameGrid) = 0;
