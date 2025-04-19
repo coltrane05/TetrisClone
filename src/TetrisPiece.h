@@ -28,23 +28,23 @@ protected:
 public:
 
     void draw(sf::RenderWindow &window);
-    void moveLeft(Grid gameGrid);
-    void moveRight(Grid gameGrid);
-    void moveDown(Grid gameGrid);
+    void moveLeft(Grid &gameGrid);
+    void moveRight(Grid &gameGrid);
+    void moveDown(Grid &gameGrid);
     bool isBlockVisibleHelper();
-    bool canMoveLeftHelper(Grid gameGrid);
-    bool canMoveRightHelper(Grid gameGrid);
-    bool canMoveDownHelper(Grid gameGrid);
+    bool canMoveLeftHelper(Grid &gameGrid);
+    bool canMoveRightHelper(Grid &gameGrid);
+    bool canMoveDownHelper(Grid &gameGrid);
     bool isBlockInBoundsHelper(int spriteIndex, std::pair<int, int> wallKickPair);
-    bool isCellUnoccupiedHelper(int spriteIndex, std::pair<int, int> wallKickPair, Grid gameGrid);
+    bool isCellUnoccupiedHelper(int spriteIndex, std::pair<int, int> wallKickPair, Grid &gameGrid);
     float getBlockHeight() const;
     float getBlockWidth() const;
-    virtual void CWRotate(Grid gameGrid) = 0;
-    virtual void CCWRotate(Grid gameGrid) = 0;
+    virtual void CWRotate(Grid &gameGrid) = 0;
+    virtual void CCWRotate(Grid &gameGrid) = 0;
     virtual void CWReverse() = 0;
     virtual void CCWReverse() = 0;
-    bool CWWallKick(Grid gameGrid);
-    bool CCWWallKick(Grid gameGrid);
+    bool CWWallKick(Grid &gameGrid);
+    bool CCWWallKick(Grid &gameGrid);
 //    void slam();
 
 };

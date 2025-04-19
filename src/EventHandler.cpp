@@ -4,30 +4,30 @@
 
 #include "EventHandler.h"
 
-void EventHandler::handleEvents(sf::RenderWindow &window, TetrisPiece* currentPiece, Grid gameGrid) {
-    while (window.pollEvent(event)) {
+void EventHandler::handleEvents(sf::RenderWindow &window, TetrisPiece* currentPiece, Grid &gameGrid) {
+    while (const std::optional event = window.pollEvent()) {
         // Close window: exit
-        if (event.type == sf::Event::Closed)
+        if (event->is<sf::Event::Closed>())
              window.close();
 
-        if (event.type == sf::Event::KeyPressed) {
-            if (event.key.code == sf::Keyboard::S) {
+        if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
+            if (keyPressed->scancode == sf::Keyboard::Scancode::S ) {
                 window.setKeyRepeatEnabled(true);
                 currentPiece->moveDown(gameGrid);
             }
-            else if (event.key.code == sf::Keyboard::D) {
+            else if (keyPressed->scancode == sf::Keyboard::Scancode::D) {
                 window.setKeyRepeatEnabled(true);
                 currentPiece->moveRight(gameGrid);
             }
-            else if (event.key.code == sf::Keyboard::A) {
+            else if (keyPressed->scancode == sf::Keyboard::Scancode::A) {
                 window.setKeyRepeatEnabled(true);
                 currentPiece->moveLeft(gameGrid);
             }
-            else if (event.key.code == sf::Keyboard::E) {
+            else if (keyPressed->scancode == sf::Keyboard::Scancode::E) {
                 window.setKeyRepeatEnabled(false);
                 currentPiece->CWRotate(gameGrid);
             }
-            else if (event.key.code == sf::Keyboard::Q) {
+            else if (keyPressed->scancode == sf::Keyboard::Scancode::Q) {
                 window.setKeyRepeatEnabled(false);
                 currentPiece->CCWRotate(gameGrid);
             }

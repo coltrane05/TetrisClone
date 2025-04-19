@@ -9,8 +9,8 @@
 
 int main() {
     // Create the main window
-    sf::VideoMode mode(2000,1200);
-    sf::RenderWindow window(mode, "SFML window");
+    sf::VideoMode mode({2000,1200});
+    sf::RenderWindow window(sf::VideoMode::getFullscreenModes().at(0), "SFML window", sf::State::Fullscreen);
 
     // Create the texture that will be mapped to all block sprites
     sf::Texture texture;
@@ -19,22 +19,23 @@ int main() {
     }
 
     sf::Sprite sampleBrick(texture);
-    sampleBrick.scale(0.04f, 0.04f);
+    sampleBrick.scale({0.04f, 0.04f});
 
-
+    unsigned int windowWidth =  window.getSize().x;
+    unsigned int windowHeight = window.getSize().y;
     sf::Texture backgroundTexture;
     if (!backgroundTexture.loadFromFile("assets/background1.jpg")) {
         std::cout << "Could not load background image..." << std::endl;
     }
     backgroundTexture.setSmooth(true);
     sf::Sprite background(backgroundTexture);
-    background.scale(0.4f, 0.4f);
+    background.scale({0.4f, 0.4f});
 
     texture.setSmooth(true);
 
-    float blockHeight = sampleBrick.getGlobalBounds().height;
-    float blockWidth = sampleBrick.getGlobalBounds().width;
-    float gridPosX = 2000 / 2.0 - (blockWidth * 10) / 2;
+    float blockHeight = sampleBrick.getGlobalBounds().size.y;
+    float blockWidth = sampleBrick.getGlobalBounds().size.x;
+    float gridPosX = windowWidth / 2.0 - (blockWidth * 10) / 2;
     float gridPosY = 100;
     auto* newLPiece = new LPiece(gridPosX + blockWidth * 3, gridPosY - blockHeight * 1, texture);
     Grid tetrisGrid(gridPosX, gridPosY, blockWidth, blockHeight);

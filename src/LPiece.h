@@ -19,8 +19,8 @@ private:
 public:
     LPiece(float posX, float posY, sf::Texture &blockTexture);
 
-    void CWRotate(Grid gameGrid) override;
-    void CCWRotate(Grid gameGrid) override;
+    void CWRotate(Grid &gameGrid) override;
+    void CCWRotate(Grid &gameGrid) override;
     void CWReverse() override;
     void CCWReverse() override;
 };

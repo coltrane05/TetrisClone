@@ -11,10 +11,9 @@
 
 class EventHandler {
 private:
-    sf::Event event;
 
 public:
-    void handleEvents(sf::RenderWindow &window, TetrisPiece* currentPiece, Grid gameGrid);
+    void handleEvents(sf::RenderWindow &window, TetrisPiece* currentPiece, Grid &gameGrid);
 };
 
 

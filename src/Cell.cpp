@@ -9,7 +9,7 @@ Cell::Cell(float x, float y, int coordinateX, int coordinateY, sf::Vector2f size
     gridX = coordinateX;
     gridY = coordinateY;
     box.setSize(size);
-    box.setPosition(x, y);
+    box.setPosition({x, y});
     box.setFillColor(fill);
     box.setOutlineColor(outline);
     box.setOutlineThickness(thickness);
