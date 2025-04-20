@@ -1,0 +1,21 @@
+# ninja log v6
+2	54	7668291783340880	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-mkdir	a5350e33b682ea6a
+2	54	7668291783340880	C:/Users/crapo/Programming/TetrisClone/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-mkdir	a5350e33b682ea6a
+54	7070	7668291853513382	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-download	144b78ecc515655a
+54	7070	7668291853513382	C:/Users/crapo/Programming/TetrisClone/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-download	144b78ecc515655a
+7070	8266	7668291853573377	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	b94e48837bafe0a2
+7070	8266	7668291853573377	C:/Users/crapo/Programming/TetrisClone/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update	b94e48837bafe0a2
+8267	8316	7668291865966188	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	2d71bf7a077c6729
+8267	8316	7668291865966188	C:/Users/crapo/Programming/TetrisClone/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch	2d71bf7a077c6729
+8316	8365	7668291866456613	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	c0bca63eb5211096
+8316	8365	7668291866456613	C:/Users/crapo/Programming/TetrisClone/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure	c0bca63eb5211096
+8365	8416	7668291866964074	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	1c5b7c65d2808281
+8365	8416	7668291866964074	C:/Users/crapo/Programming/TetrisClone/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build	1c5b7c65d2808281
+8416	8466	7668291867460865	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	f5af3fb91c05158a
+8416	8466	7668291867460865	C:/Users/crapo/Programming/TetrisClone/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install	f5af3fb91c05158a
+8466	8516	7668291867969726	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	e318be3125a5178b
+8466	8516	7668291867969726	C:/Users/crapo/Programming/TetrisClone/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test	e318be3125a5178b
+8516	8582	7668291868629728	CMakeFiles/sfml-populate-complete	aee307a220b84aeb
+8516	8582	7668291868629728	sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	aee307a220b84aeb
+8516	8582	7668291868629728	C:/Users/crapo/Programming/TetrisClone/cmake-build-debug/_deps/sfml-subbuild/CMakeFiles/sfml-populate-complete	aee307a220b84aeb
+8516	8582	7668291868629728	C:/Users/crapo/Programming/TetrisClone/cmake-build-debug/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-done	aee307a220b84aeb

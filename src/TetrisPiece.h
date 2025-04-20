@@ -45,7 +45,7 @@ public:
     virtual void CCWReverse() = 0;
     bool CWWallKick(Grid &gameGrid);
     bool CCWWallKick(Grid &gameGrid);
-//    void slam();
+    void hardDrop(Grid &gameGrid);
 
 };
 

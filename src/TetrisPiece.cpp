@@ -60,6 +60,12 @@ void TetrisPiece::moveLeft(Grid &gameGrid) {
     }
 }
 
+void TetrisPiece::hardDrop(Grid &gameGrid) {
+    while(canMoveDownHelper(gameGrid)) {
+        moveDown(gameGrid);
+    }
+}
+
 bool TetrisPiece::isBlockVisibleHelper() {
     bool isBlockVisible = false;
     for (auto & spriteCoordinate : spriteCoordinates) {
@@ -205,11 +211,4 @@ bool TetrisPiece::isCellUnoccupiedHelper(int spriteIndex, std::pair<int, int> wa
     return true;
 }
 
-float TetrisPiece::getBlockHeight() const {
-    return blockHeight;
-}
-
-float TetrisPiece::getBlockWidth() const {
-    return blockWidth;
-}
 

@@ -1,0 +1,21 @@
+# ninja log v6
+1	50	7668292000126288	flac-populate-prefix/src/flac-populate-stamp/flac-populate-mkdir	4c212ec47b2fe147
+1	50	7668292000126288	C:/Users/crapo/Programming/TetrisClone/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-mkdir	4c212ec47b2fe147
+50	2167	7668292021295476	flac-populate-prefix/src/flac-populate-stamp/flac-populate-download	3f885c242091f85d
+50	2167	7668292021295476	C:/Users/crapo/Programming/TetrisClone/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-download	3f885c242091f85d
+2167	2273	7668292021361223	flac-populate-prefix/src/flac-populate-stamp/flac-populate-update	57a5e0d56f1c0be7
+2167	2273	7668292021361223	C:/Users/crapo/Programming/TetrisClone/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-update	57a5e0d56f1c0be7
+2273	2322	7668292022851315	flac-populate-prefix/src/flac-populate-stamp/flac-populate-patch	758291a8c3446f48
+2273	2322	7668292022851315	C:/Users/crapo/Programming/TetrisClone/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-patch	758291a8c3446f48
+2323	2369	7668292023321304	flac-populate-prefix/src/flac-populate-stamp/flac-populate-configure	60d639c8223c048c
+2323	2369	7668292023321304	C:/Users/crapo/Programming/TetrisClone/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-configure	60d639c8223c048c
+2370	2418	7668292023801310	flac-populate-prefix/src/flac-populate-stamp/flac-populate-build	54a9721dca7ededb
+2370	2418	7668292023801310	C:/Users/crapo/Programming/TetrisClone/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-build	54a9721dca7ededb
+2418	2466	7668292024281306	flac-populate-prefix/src/flac-populate-stamp/flac-populate-install	b18f509d1ef226b6
+2418	2466	7668292024281306	C:/Users/crapo/Programming/TetrisClone/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-install	b18f509d1ef226b6
+2466	2516	7668292024791303	flac-populate-prefix/src/flac-populate-stamp/flac-populate-test	67546cd3d8b8cf45
+2466	2516	7668292024791303	C:/Users/crapo/Programming/TetrisClone/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-test	67546cd3d8b8cf45
+2516	2583	7668292025451306	CMakeFiles/flac-populate-complete	8be4e64b8b2aa15e
+2516	2583	7668292025451306	flac-populate-prefix/src/flac-populate-stamp/flac-populate-done	8be4e64b8b2aa15e
+2516	2583	7668292025451306	C:/Users/crapo/Programming/TetrisClone/cmake-build-debug/_deps/flac-subbuild/CMakeFiles/flac-populate-complete	8be4e64b8b2aa15e
+2516	2583	7668292025451306	C:/Users/crapo/Programming/TetrisClone/cmake-build-debug/_deps/flac-subbuild/flac-populate-prefix/src/flac-populate-stamp/flac-populate-done	8be4e64b8b2aa15e

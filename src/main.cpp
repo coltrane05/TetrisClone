@@ -1,7 +1,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include <typeinfo>
-#include <string>
+#include <SFML/Window.hpp>
 #include <vector>
 #include "LPiece.h"
 #include "Grid.h"
@@ -23,13 +22,14 @@ int main() {
 
     unsigned int windowWidth =  window.getSize().x;
     unsigned int windowHeight = window.getSize().y;
+
     sf::Texture backgroundTexture;
     if (!backgroundTexture.loadFromFile("assets/background1.jpg")) {
         std::cout << "Could not load background image..." << std::endl;
     }
-    backgroundTexture.setSmooth(true);
+    sf::Vector2u backgroundSize = backgroundTexture.getSize();
     sf::Sprite background(backgroundTexture);
-    background.scale({0.4f, 0.4f});
+    background.scale({static_cast<float>(windowWidth) / backgroundSize.x, static_cast<float>(windowHeight) / backgroundSize.y});
 
     texture.setSmooth(true);
 
@@ -40,6 +40,8 @@ int main() {
     auto* newLPiece = new LPiece(gridPosX + blockWidth * 3, gridPosY - blockHeight * 1, texture);
     Grid tetrisGrid(gridPosX, gridPosY, blockWidth, blockHeight);
     EventHandler eventHandler;
+
+    window.setJoystickThreshold(20.0f);
 
     while (window.isOpen()) {
         eventHandler.handleEvents(window, newLPiece, tetrisGrid);
