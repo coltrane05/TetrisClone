@@ -44,9 +44,9 @@ void Grid::draw(sf::RenderWindow &window) {
     gridOutline2.setSize(gridSize2);
     gridOutline3.setSize(gridSize3);
 
-    gridOutline.setPosition(x - 1, y - 1);
-    gridOutline2.setPosition(gridOutline.getPosition().x - 5, gridOutline.getPosition().y - 5);
-    gridOutline3.setPosition(gridOutline2.getPosition().x - 4, gridOutline2.getPosition().y - 4);
+    gridOutline.setPosition({x - 1, y - 1});
+    gridOutline2.setPosition({gridOutline.getPosition().x - 5, gridOutline.getPosition().y - 5});
+    gridOutline3.setPosition({gridOutline2.getPosition().x - 4, gridOutline2.getPosition().y - 4});
 
     sf::Color outlineColor(255, 255, 255, 255);
     sf::Color outlineColor2(175, 175, 175, 255);

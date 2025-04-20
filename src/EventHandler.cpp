@@ -1,35 +1,72 @@
 //
-// Created by crapo on 4/13/2025.
+// Created by Colton Crapo on 4/13/2025.
 //
 
+#include <iostream>
 #include "EventHandler.h"
 
-void EventHandler::handleEvents(sf::RenderWindow &window, TetrisPiece* currentPiece, Grid gameGrid) {
-    while (window.pollEvent(event)) {
+void EventHandler::handleEvents(sf::RenderWindow &window, TetrisPiece* currentPiece, Grid &gameGrid) {
+    auto dPadX = sf::Joystick::Axis::PovX;
+    auto dPadY = sf::Joystick::Axis::PovY;
+    while (const std::optional event = window.pollEvent()) {
         // Close window: exit
-        if (event.type == sf::Event::Closed)
+        if (event->is<sf::Event::Closed>() || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
              window.close();
 
-        if (event.type == sf::Event::KeyPressed) {
-            if (event.key.code == sf::Keyboard::S) {
+        if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
+            if (keyPressed->scancode == sf::Keyboard::Scancode::S) {
                 window.setKeyRepeatEnabled(true);
                 currentPiece->moveDown(gameGrid);
             }
-            else if (event.key.code == sf::Keyboard::D) {
+            else if (keyPressed->scancode == sf::Keyboard::Scancode::D) {
                 window.setKeyRepeatEnabled(true);
                 currentPiece->moveRight(gameGrid);
             }
-            else if (event.key.code == sf::Keyboard::A) {
+            else if (keyPressed->scancode == sf::Keyboard::Scancode::A) {
                 window.setKeyRepeatEnabled(true);
                 currentPiece->moveLeft(gameGrid);
             }
-            else if (event.key.code == sf::Keyboard::E) {
+            else if (keyPressed->scancode == sf::Keyboard::Scancode::W) {
+                window.setKeyRepeatEnabled(false);
+                currentPiece->hardDrop(gameGrid);
+            }
+            else if (keyPressed->scancode == sf::Keyboard::Scancode::E) {
                 window.setKeyRepeatEnabled(false);
                 currentPiece->CWRotate(gameGrid);
             }
-            else if (event.key.code == sf::Keyboard::Q) {
+            else if (keyPressed->scancode == sf::Keyboard::Scancode::Q) {
                 window.setKeyRepeatEnabled(false);
                 currentPiece->CCWRotate(gameGrid);
+            }
+        }
+
+        if (const auto* buttonPressed = event->getIf<sf::Event::JoystickButtonPressed>()) {
+            if (buttonPressed->button == 2) {
+                window.setKeyRepeatEnabled(false);
+                currentPiece->CWRotate(gameGrid);
+            }
+            else if (buttonPressed->button == 1) {
+                window.setKeyRepeatEnabled(false);
+                currentPiece->CCWRotate(gameGrid);
+            }
+        }
+
+        if (const auto* joystickMoved = event->getIf<sf::Event::JoystickMoved>()) {
+            if (sf::Joystick::getAxisPosition(0, dPadY) == -100) {
+                window.setKeyRepeatEnabled(true);
+                currentPiece->moveDown(gameGrid);
+            }
+            else if (sf::Joystick::getAxisPosition(0, dPadX) == 100) {
+                window.setKeyRepeatEnabled(true);
+                currentPiece->moveRight(gameGrid);
+            }
+            else if (sf::Joystick::getAxisPosition(0, dPadX) == -100) {
+                window.setKeyRepeatEnabled(true);
+                currentPiece->moveLeft(gameGrid);
+            }
+            else if (sf::Joystick::getAxisPosition(0, dPadY) == 100) {
+                window.setKeyRepeatEnabled(false);
+                currentPiece->hardDrop(gameGrid);
             }
         }
     }

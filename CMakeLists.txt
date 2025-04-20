@@ -3,6 +3,15 @@ project(TetrisClone)
 
 set(CMAKE_CXX_STANDARD 17)
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+include(FetchContent)
+FetchContent_Declare(SFML
+        GIT_REPOSITORY https://github.com/SFML/SFML.git
+        GIT_TAG 3.0.x
+        GIT_SHALLOW ON)
+FetchContent_MakeAvailable(SFML)
+
 add_executable(TetrisClone src/main.cpp
         src/LPiece.cpp
         src/LPiece.h
@@ -15,12 +24,7 @@ add_executable(TetrisClone src/main.cpp
         src/EventHandler.cpp
         src/EventHandler.h)
 
-target_include_directories(TetrisClone PRIVATE "${PROJECT_BINARY_DIR}")
+target_compile_features(TetrisClone PRIVATE cxx_std_17)
+target_link_libraries(TetrisClone PRIVATE SFML::Graphics)
 
-find_package(SFML COMPONENTS system window graphics network audio REQUIRED)
-
-target_link_libraries(TetrisClone sfml-graphics sfml-system sfml-window sfml-audio sfml-network)
-
-install(TARGETS TetrisClone DESTINATION bin)
-
-file(COPY assets DESTINATION ${PROJECT_BINARY_DIR})
+file(COPY assets DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})

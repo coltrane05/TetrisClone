@@ -30,33 +30,39 @@ void TetrisPiece::draw(sf::RenderWindow &window) {
     }
 }
 
-void TetrisPiece::moveDown(Grid gameGrid) {
+void TetrisPiece::moveDown(Grid &gameGrid) {
     if (this->canMoveDownHelper(gameGrid)) {
         x = x + blockHeight;
         for (int i = 0; i < sprites.size(); i++) {
-            sprites[i].move(0, blockHeight);
+            sprites[i].move({0, blockHeight});
             spriteCoordinates[i].second++;
         }
     }
 }
 
-void TetrisPiece::moveRight(Grid gameGrid) {
+void TetrisPiece::moveRight(Grid &gameGrid) {
     if (this->isBlockVisibleHelper() && this->canMoveRightHelper(gameGrid)) {
         y = y + blockWidth;
         for (int i = 0; i < sprites.size(); i++) {
-            sprites[i].move(blockWidth, 0);
+            sprites[i].move({blockWidth, 0});
             std::get<0>(spriteCoordinates[i])++;
         }
     }
 }
 
-void TetrisPiece::moveLeft(Grid gameGrid) {
+void TetrisPiece::moveLeft(Grid &gameGrid) {
     if (this->isBlockVisibleHelper() && this->canMoveLeftHelper(gameGrid)) {
         y = y - blockWidth;
         for (int i = 0; i < sprites.size(); i++) {
-            sprites[i].move(-blockWidth, 0);
+            sprites[i].move({-blockWidth, 0});
             std::get<0>(spriteCoordinates[i])--;
         }
+    }
+}
+
+void TetrisPiece::hardDrop(Grid &gameGrid) {
+    while(canMoveDownHelper(gameGrid)) {
+        moveDown(gameGrid);
     }
 }
 
@@ -70,7 +76,7 @@ bool TetrisPiece::isBlockVisibleHelper() {
     return isBlockVisible;
 }
 
-bool TetrisPiece::canMoveLeftHelper(Grid gameGrid) {
+bool TetrisPiece::canMoveLeftHelper(Grid &gameGrid) {
     bool canMoveLeft = true;
     int xCoord;
     int yCoord;
@@ -93,7 +99,7 @@ bool TetrisPiece::canMoveLeftHelper(Grid gameGrid) {
     return canMoveLeft;
 }
 
-bool TetrisPiece::canMoveRightHelper(Grid gameGrid) {
+bool TetrisPiece::canMoveRightHelper(Grid &gameGrid) {
     bool canMoveRight = true;
     int xCoord;
     int yCoord;
@@ -116,7 +122,7 @@ bool TetrisPiece::canMoveRightHelper(Grid gameGrid) {
     return canMoveRight;
 }
 
-bool TetrisPiece::canMoveDownHelper(Grid gameGrid) {
+bool TetrisPiece::canMoveDownHelper(Grid &gameGrid) {
     bool canMoveDown = true;
     int xCoord;
     int yCoord;
@@ -134,7 +140,7 @@ bool TetrisPiece::canMoveDownHelper(Grid gameGrid) {
     return canMoveDown;
 }
 
-bool TetrisPiece::CWWallKick(Grid gameGrid) {
+bool TetrisPiece::CWWallKick(Grid &gameGrid) {
     bool successful = false;
     for (auto pair : cwWallKickData[rotationState]) {
         bool allBlocksAreValid = true;
@@ -146,7 +152,7 @@ bool TetrisPiece::CWWallKick(Grid gameGrid) {
         }
         if (allBlocksAreValid) {
             for (int i = 0; i < sprites.size(); i++) {
-                sprites[i].move(blockWidth * pair.first, blockHeight * pair.second);
+                sprites[i].move({blockWidth * pair.first, blockHeight * pair.second});
                 spriteCoordinates[i].first += pair.first;
                 spriteCoordinates[i].second += pair.second;
             }
@@ -157,7 +163,7 @@ bool TetrisPiece::CWWallKick(Grid gameGrid) {
     return successful;
 }
 
-bool TetrisPiece::CCWWallKick(Grid gameGrid) {
+bool TetrisPiece::CCWWallKick(Grid &gameGrid) {
     bool successful = false;
     for (auto pair : ccwWallKickData[rotationState]) {
         bool allBlocksAreValid = true;
@@ -169,7 +175,7 @@ bool TetrisPiece::CCWWallKick(Grid gameGrid) {
         }
         if (allBlocksAreValid) {
             for (int i = 0; i < sprites.size(); i++) {
-                sprites[i].move(blockWidth * pair.first, blockHeight * pair.second);
+                sprites[i].move({blockWidth * pair.first, blockHeight * pair.second});
                 spriteCoordinates[i].first += pair.first;
                 spriteCoordinates[i].second += pair.second;
             }
@@ -193,7 +199,7 @@ bool TetrisPiece::isBlockInBoundsHelper(int spriteIndex, std::pair<int, int> wal
     return true;
 }
 
-bool TetrisPiece::isCellUnoccupiedHelper(int spriteIndex, std::pair<int, int> wallKickPair, Grid gameGrid) {
+bool TetrisPiece::isCellUnoccupiedHelper(int spriteIndex, std::pair<int, int> wallKickPair, Grid &gameGrid) {
     int xCoord = spriteCoordinates[spriteIndex].first + wallKickPair.first;
     int yCoord= spriteCoordinates[spriteIndex].second + wallKickPair.second;
     if (yCoord < 0) {
@@ -205,11 +211,4 @@ bool TetrisPiece::isCellUnoccupiedHelper(int spriteIndex, std::pair<int, int> wa
     return true;
 }
 
-float TetrisPiece::getBlockHeight() const {
-    return blockHeight;
-}
-
-float TetrisPiece::getBlockWidth() const {
-    return blockWidth;
-}
 
