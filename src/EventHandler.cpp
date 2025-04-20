@@ -10,10 +10,13 @@ void EventHandler::handleEvents(sf::RenderWindow &window, TetrisPiece* currentPi
     auto dPadY = sf::Joystick::Axis::PovY;
     while (const std::optional event = window.pollEvent()) {
         // Close window: exit
-        if (event->is<sf::Event::Closed>() || sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape))
+        if (event->is<sf::Event::Closed>())
              window.close();
 
         if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
+            if (keyPressed->scancode == sf::Keyboard::Scancode::Escape) {
+                window.close();
+            }
             if (keyPressed->scancode == sf::Keyboard::Scancode::S) {
                 window.setKeyRepeatEnabled(true);
                 currentPiece->moveDown(gameGrid);
