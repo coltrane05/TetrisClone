@@ -25,7 +25,7 @@ std::map<int, std::vector<std::pair<int, int>>> TetrisPiece::ccwWallKickData = {
 
 TetrisPiece::~TetrisPiece() = default;
 
-void TetrisPiece::draw(sf::RenderWindow &window) {
+void TetrisPiece::draw(sf::RenderWindow &window) const {
     for (int i = 0; i < sprites.size(); i++) {
         if (std::get<1>(spriteCoordinates[i]) >= 0) {
             window.draw(sprites[i]);
@@ -73,7 +73,7 @@ void TetrisPiece::hardDrop(Grid &gameGrid) {
     freezePiece(gameGrid);
 }
 
-bool TetrisPiece::isBlockVisibleHelper() {
+bool TetrisPiece::isBlockVisibleHelper() const {
     bool isBlockVisible = false;
     for (auto & spriteCoordinate : spriteCoordinates) {
         if (spriteCoordinate.second >= 0) {
@@ -83,13 +83,11 @@ bool TetrisPiece::isBlockVisibleHelper() {
     return isBlockVisible;
 }
 
-bool TetrisPiece::canMoveLeftHelper(Grid &gameGrid) {
+bool TetrisPiece::canMoveLeftHelper(Grid &gameGrid) const {
     bool canMoveLeft = true;
-    int xCoord;
-    int yCoord;
     for (auto & spriteCoordinate : spriteCoordinates) {
-        xCoord = spriteCoordinate.first - 1;
-        yCoord = spriteCoordinate.second;
+        const int xCoord = spriteCoordinate.first - 1;
+        const int yCoord = spriteCoordinate.second;
         if (spriteCoordinate.second >= 0) {
             if (spriteCoordinate.first - 1 < 0 || gameGrid.tetrisGrid.at(yCoord).at(xCoord).isOccupied()) {
                 canMoveLeft = false;
@@ -106,13 +104,11 @@ bool TetrisPiece::canMoveLeftHelper(Grid &gameGrid) {
     return canMoveLeft;
 }
 
-bool TetrisPiece::canMoveRightHelper(Grid &gameGrid) {
+bool TetrisPiece::canMoveRightHelper(Grid &gameGrid) const {
     bool canMoveRight = true;
-    int xCoord;
-    int yCoord;
     for (auto & spriteCoordinate : spriteCoordinates) {
-        xCoord = spriteCoordinate.first + 1;
-        yCoord = spriteCoordinate.second;
+        const int xCoord = spriteCoordinate.first + 1;
+        const int yCoord = spriteCoordinate.second;
         if (spriteCoordinate.second >= 0) {
             if (spriteCoordinate.first + 1 > 9 || gameGrid.tetrisGrid.at(yCoord).at(xCoord).isOccupied()) {
                 canMoveRight = false;
@@ -129,13 +125,11 @@ bool TetrisPiece::canMoveRightHelper(Grid &gameGrid) {
     return canMoveRight;
 }
 
-bool TetrisPiece::canMoveDownHelper(Grid &gameGrid) {
+bool TetrisPiece::canMoveDownHelper(Grid &gameGrid) const {
     bool canMoveDown = true;
-    int xCoord;
-    int yCoord;
     for (auto & spriteCoordinate : spriteCoordinates) {
-        xCoord = spriteCoordinate.first;
-        yCoord = spriteCoordinate.second + 1;
+        const int xCoord = spriteCoordinate.first;
+        const int yCoord = spriteCoordinate.second + 1;
         if (spriteCoordinate.second >= 0) {
             if (spriteCoordinate.second + 1 > 19 || gameGrid.tetrisGrid.at(yCoord).at(xCoord).isOccupied()) {
                 canMoveDown = false;
@@ -193,7 +187,7 @@ bool TetrisPiece::CCWWallKick(Grid &gameGrid) {
     return successful;
 }
 
-bool TetrisPiece::isBlockInBoundsHelper(int spriteIndex, std::pair<int, int> wallKickPair) {
+bool TetrisPiece::isBlockInBoundsHelper(int spriteIndex, const std::pair<int, int> &wallKickPair) const {
     int xCoord = spriteCoordinates[spriteIndex].first + wallKickPair.first;
     int yCoord = spriteCoordinates[spriteIndex].second + wallKickPair.second;
     if (xCoord < 0 || xCoord > 9) {
@@ -206,7 +200,7 @@ bool TetrisPiece::isBlockInBoundsHelper(int spriteIndex, std::pair<int, int> wal
     return true;
 }
 
-bool TetrisPiece::isCellUnoccupiedHelper(int spriteIndex, std::pair<int, int> wallKickPair, Grid &gameGrid) {
+bool TetrisPiece::isCellUnoccupiedHelper(int spriteIndex, const std::pair<int, int> &wallKickPair, Grid &gameGrid) const {
     int xCoord = spriteCoordinates[spriteIndex].first + wallKickPair.first;
     int yCoord= spriteCoordinates[spriteIndex].second + wallKickPair.second;
     if (yCoord < 0) {
@@ -223,17 +217,17 @@ void TetrisPiece::freezePiece(Grid &gameGrid) {
     int newColorG = pieceColor.g - 50 * (pieceColor.g / 255);
     int newColorB = pieceColor.b - 50 * (pieceColor.b / 255);
 
-    for (int i = 0; i < spriteCoordinates.size(); i++) {
-        x = spriteCoordinates[i].first;
-        y = spriteCoordinates[i].second;
-        gameGrid.tetrisGrid.at(y).at(x).setOccupied();
-        gameGrid.tetrisGrid.at(y).at(x).setSpriteColor(sf::Color(newColorR, newColorG, newColorB));
+    for (auto & spriteCoordinate : spriteCoordinates) {
+        const int xCoord = spriteCoordinate.first;
+        const int yCoord = spriteCoordinate.second;
+        gameGrid.tetrisGrid.at(yCoord).at(xCoord).setOccupied();
+        gameGrid.tetrisGrid.at(yCoord).at(xCoord).setSpriteColor(sf::Color(newColorR, newColorG, newColorB));
     }
 
     frozen = true;
 }
 
-bool TetrisPiece::isFrozen() {
+bool TetrisPiece::isFrozen() const {
     return frozen;
 }
 

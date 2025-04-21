@@ -26,18 +26,18 @@ protected:
     static std::map<int, std::vector<std::pair<int, int>>> cwWallKickData;
     static std::map<int, std::vector<std::pair<int, int>>> ccwWallKickData;
 
-    bool isBlockVisibleHelper();
-    bool canMoveLeftHelper(Grid &gameGrid);
-    bool canMoveRightHelper(Grid &gameGrid);
-    bool canMoveDownHelper(Grid &gameGrid);
-    bool isBlockInBoundsHelper(int spriteIndex, std::pair<int, int> wallKickPair);
-    bool isCellUnoccupiedHelper(int spriteIndex, std::pair<int, int> wallKickPair, Grid &gameGrid);
+    bool isBlockVisibleHelper() const;
+    bool canMoveLeftHelper(Grid &gameGrid) const;
+    bool canMoveRightHelper(Grid &gameGrid) const;
+    bool canMoveDownHelper(Grid &gameGrid) const;
+    bool isBlockInBoundsHelper(int spriteIndex, const std::pair<int, int> &wallKickPair) const;
+    bool isCellUnoccupiedHelper(int spriteIndex, const std::pair<int, int> &wallKickPair, Grid &gameGrid) const;
 
 
 public:
 
     virtual ~TetrisPiece() = 0;
-    void draw(sf::RenderWindow &window);
+    void draw(sf::RenderWindow &window) const;
     void moveLeft(Grid &gameGrid);
     void moveRight(Grid &gameGrid);
     void moveDown(Grid &gameGrid);
@@ -51,7 +51,7 @@ public:
     bool CCWWallKick(Grid &gameGrid);
     void hardDrop(Grid &gameGrid);
     void freezePiece(Grid &gameGrid);
-    bool isFrozen();
+    bool isFrozen() const;
 
 };
 
