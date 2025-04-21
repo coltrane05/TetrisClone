@@ -18,7 +18,7 @@ private:
     std::map<int, std::vector<float>> transitionStates3;
 public:
     LPiece(float posX, float posY, sf::Texture &blockTexture);
-
+    ~LPiece() override;
     void CWRotate(Grid &gameGrid) override;
     void CCWRotate(Grid &gameGrid) override;
     void CWReverse() override;

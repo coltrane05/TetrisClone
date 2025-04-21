@@ -24,11 +24,12 @@ LPiece::LPiece(float posX, float posY, sf::Texture &blockTexture) {
     transitionStates3[2] = {0.0, -2.0};
     transitionStates3[3] = {2.0, 0.0};
 
+    pieceColor = sf::Color(255, 155, 0);
 
     for (int i = 0; i < 4; i++) {
         sprites.push_back(sf::Sprite(blockTexture));
         sprites[i].scale({0.04f, 0.04f});
-        sprites[i].setColor(sf::Color::Cyan);
+        sprites[i].setColor(pieceColor);
     }
 
 
@@ -47,6 +48,9 @@ LPiece::LPiece(float posX, float posY, sf::Texture &blockTexture) {
     spriteCoordinates.emplace_back(5, -2);
 
 }
+
+LPiece::~LPiece() = default;
+
 
 void LPiece::CWRotate(Grid &gameGrid) {
     std::vector<float> movements0 = transitionStates0[rotationState];

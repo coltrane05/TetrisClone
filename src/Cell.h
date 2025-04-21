@@ -12,11 +12,12 @@ private:
     int gridX;
     int gridY;
     sf::RectangleShape box;
+    sf::Sprite cellSprite;
     bool occupied;
     bool fixed;
 
 public:
-    Cell(float x, float y, int coordinateX, int coordinateY, sf::Vector2f size, float thickness, sf::Color fill, sf::Color outline);
+    Cell(float x, float y, int coordinateX, int coordinateY, sf::Vector2f size, float thickness, sf::Color fill, sf::Color outline, sf::Texture &spriteTexture);
     bool isOccupied();
     void setOccupied();
     void setUnoccupied();
@@ -24,6 +25,8 @@ public:
     void setFixed();
     void setUnfixed();
     sf::RectangleShape getBox();
+    void drawSprite(sf::RenderWindow &window);
+    void setSpriteColor(sf::Color color);
 };
 
 

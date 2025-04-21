@@ -21,7 +21,7 @@ public:
     std::map<std::tuple<float, float>, std::tuple<int, int>> positionMap;
     std::vector<std::vector<Cell>> tetrisGrid;
 
-    Grid(float posX, float posY, float cellWidth, float cellHeight);
+    Grid(float posX, float posY, float cellWidth, float cellHeight, sf::Texture &spriteTexture);
 
     void draw(sf::RenderWindow &window);
 

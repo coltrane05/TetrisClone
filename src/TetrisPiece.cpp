@@ -22,6 +22,9 @@ std::map<int, std::vector<std::pair<int, int>>> TetrisPiece::ccwWallKickData = {
         {2, {make_pair(0, 0), make_pair(-1, 0), make_pair(-1, -1), make_pair(0, 2), make_pair(-1, 2)}},
         {3, {make_pair(0, 0), make_pair(-1, 0), make_pair(-1, 1), make_pair(0, -2), make_pair(-1, -2)}}
 };
+
+TetrisPiece::~TetrisPiece() = default;
+
 void TetrisPiece::draw(sf::RenderWindow &window) {
     for (int i = 0; i < sprites.size(); i++) {
         if (std::get<1>(spriteCoordinates[i]) >= 0) {
@@ -37,6 +40,9 @@ void TetrisPiece::moveDown(Grid &gameGrid) {
             sprites[i].move({0, blockHeight});
             spriteCoordinates[i].second++;
         }
+    }
+    else {
+        freezePiece(gameGrid);
     }
 }
 
@@ -64,6 +70,7 @@ void TetrisPiece::hardDrop(Grid &gameGrid) {
     while(canMoveDownHelper(gameGrid)) {
         moveDown(gameGrid);
     }
+    freezePiece(gameGrid);
 }
 
 bool TetrisPiece::isBlockVisibleHelper() {
@@ -211,4 +218,22 @@ bool TetrisPiece::isCellUnoccupiedHelper(int spriteIndex, std::pair<int, int> wa
     return true;
 }
 
+void TetrisPiece::freezePiece(Grid &gameGrid) {
+    int newColorR = pieceColor.r - 50 * (pieceColor.r / 255);
+    int newColorG = pieceColor.g - 50 * (pieceColor.g / 255);
+    int newColorB = pieceColor.b - 50 * (pieceColor.b / 255);
+
+    for (int i = 0; i < spriteCoordinates.size(); i++) {
+        x = spriteCoordinates[i].first;
+        y = spriteCoordinates[i].second;
+        gameGrid.tetrisGrid.at(y).at(x).setOccupied();
+        gameGrid.tetrisGrid.at(y).at(x).setSpriteColor(sf::Color(newColorR, newColorG, newColorB));
+    }
+
+    frozen = true;
+}
+
+bool TetrisPiece::isFrozen() {
+    return frozen;
+}
 

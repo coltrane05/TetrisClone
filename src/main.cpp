@@ -6,6 +6,8 @@
 #include "Grid.h"
 #include "EventHandler.h"
 
+TetrisPiece *generateTetrisPiece(float gridPosX, float gridPosY, sf::Texture &blockTexture);
+
 int main() {
     // Create the main window
     sf::VideoMode mode({2000,1200});
@@ -32,28 +34,37 @@ int main() {
     background.scale({static_cast<float>(windowWidth) / backgroundSize.x, static_cast<float>(windowHeight) / backgroundSize.y});
 
     texture.setSmooth(true);
-
     float blockHeight = sampleBrick.getGlobalBounds().size.y;
     float blockWidth = sampleBrick.getGlobalBounds().size.x;
     float gridPosX = windowWidth / 2.0 - (blockWidth * 10) / 2;
     float gridPosY = 100;
-    auto* newLPiece = new LPiece(gridPosX + blockWidth * 3, gridPosY - blockHeight * 1, texture);
-    Grid tetrisGrid(gridPosX, gridPosY, blockWidth, blockHeight);
+    auto* currentPiece = generateTetrisPiece(gridPosX + blockWidth * 3, gridPosY - blockHeight * 1, texture);
+    Grid tetrisGrid(gridPosX, gridPosY, blockWidth, blockHeight, texture);
     EventHandler eventHandler;
 
     window.setJoystickThreshold(20.0f);
 
     while (window.isOpen()) {
-        eventHandler.handleEvents(window, newLPiece, tetrisGrid);
+        if (currentPiece->isFrozen()) {
+            delete currentPiece;
+            currentPiece = generateTetrisPiece(gridPosX + blockWidth * 3, gridPosY - blockHeight * 1, texture);
+        }
+
+        eventHandler.handleEvents(window, currentPiece, tetrisGrid);
 
         window.clear();
         window.draw(background);
         tetrisGrid.draw(window);
-        newLPiece->draw(window);
+        currentPiece->draw(window);
         window.display();
 
     }
-    delete newLPiece;
+    delete currentPiece;
 
     return 0;
 }
+
+TetrisPiece *generateTetrisPiece(float gridPosX, float gridPosY, sf::Texture &blockTexture) {
+    return new LPiece(gridPosX, gridPosY, blockTexture);
+}
+

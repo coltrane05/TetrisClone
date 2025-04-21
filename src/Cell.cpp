@@ -5,7 +5,7 @@
 #include "Cell.h"
 #include <iostream>
 
-Cell::Cell(float x, float y, int coordinateX, int coordinateY, sf::Vector2f size, float thickness, sf::Color fill, sf::Color outline) {
+Cell::Cell(float x, float y, int coordinateX, int coordinateY, sf::Vector2f size, float thickness, sf::Color fill, sf::Color outline, sf::Texture &spriteTexture): cellSprite(spriteTexture) {
     gridX = coordinateX;
     gridY = coordinateY;
     box.setSize(size);
@@ -15,6 +15,8 @@ Cell::Cell(float x, float y, int coordinateX, int coordinateY, sf::Vector2f size
     box.setOutlineThickness(thickness);
     occupied = false;
     fixed = true;
+    cellSprite.setPosition({x - 1, y - 1});
+    cellSprite.scale({0.04f, 0.04f});
 }
 
 bool Cell::isOccupied() {
@@ -43,4 +45,12 @@ void Cell::setUnfixed() {
 
 sf::RectangleShape Cell::getBox() {
     return box;
+}
+
+void Cell::drawSprite(sf::RenderWindow &window) {
+    window.draw(cellSprite);
+}
+
+void Cell::setSpriteColor(sf::Color color) {
+    cellSprite.setColor(color);
 }

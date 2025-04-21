@@ -19,24 +19,28 @@ protected:
     float blockHeight;
     float blockWidth;
     int rotationState;
+    bool frozen = false;
+    sf::Color pieceColor;
     std::vector<sf::Sprite> sprites;
     std::vector<std::pair<int, int>> spriteCoordinates;
     static std::map<int, std::vector<std::pair<int, int>>> cwWallKickData;
     static std::map<int, std::vector<std::pair<int, int>>> ccwWallKickData;
 
-
-public:
-
-    void draw(sf::RenderWindow &window);
-    void moveLeft(Grid &gameGrid);
-    void moveRight(Grid &gameGrid);
-    void moveDown(Grid &gameGrid);
     bool isBlockVisibleHelper();
     bool canMoveLeftHelper(Grid &gameGrid);
     bool canMoveRightHelper(Grid &gameGrid);
     bool canMoveDownHelper(Grid &gameGrid);
     bool isBlockInBoundsHelper(int spriteIndex, std::pair<int, int> wallKickPair);
     bool isCellUnoccupiedHelper(int spriteIndex, std::pair<int, int> wallKickPair, Grid &gameGrid);
+
+
+public:
+
+    virtual ~TetrisPiece() = 0;
+    void draw(sf::RenderWindow &window);
+    void moveLeft(Grid &gameGrid);
+    void moveRight(Grid &gameGrid);
+    void moveDown(Grid &gameGrid);
     float getBlockHeight() const;
     float getBlockWidth() const;
     virtual void CWRotate(Grid &gameGrid) = 0;
@@ -46,6 +50,8 @@ public:
     bool CWWallKick(Grid &gameGrid);
     bool CCWWallKick(Grid &gameGrid);
     void hardDrop(Grid &gameGrid);
+    void freezePiece(Grid &gameGrid);
+    bool isFrozen();
 
 };
 

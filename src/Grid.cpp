@@ -4,7 +4,7 @@
 
 #include "Grid.h"
 
-Grid::Grid(float posX, float posY, float cellWidth, float cellHeight) {
+Grid::Grid(float posX, float posY, float cellWidth, float cellHeight, sf::Texture &spriteTexture) {
     x = posX + 1;
     y = posY + 1;
     this->cellWidth = cellWidth;
@@ -18,7 +18,7 @@ Grid::Grid(float posX, float posY, float cellWidth, float cellHeight) {
             std::tuple<float, float> currentPosition(posX + j * cellWidth, posY + i * cellHeight);
             std::tuple<int, int> currentCoordinates(j, i);
             positionMap[currentPosition] = currentCoordinates;
-            row.emplace_back(x + j * cellWidth, y + i * cellHeight, j, i, size, 1, fillColor, outlineColor);
+            row.emplace_back(x + j * cellWidth, y + i * cellHeight, j, i, size, 1, fillColor, outlineColor, spriteTexture);
 
         }
         tetrisGrid.push_back(row);
@@ -27,11 +27,7 @@ Grid::Grid(float posX, float posY, float cellWidth, float cellHeight) {
 }
 
 void Grid::draw(sf::RenderWindow &window) {
-    for (int i = 0; i < 20; i++) {
-        for (int j = 0; j < 10; j++) {
-            window.draw(tetrisGrid[i][j].getBox());
-        }
-    }
+
     sf::RectangleShape gridOutline;
     sf::RectangleShape gridOutline2;
     sf::RectangleShape gridOutline3;
@@ -67,4 +63,13 @@ void Grid::draw(sf::RenderWindow &window) {
     window.draw(gridOutline);
     window.draw(gridOutline2);
     window.draw(gridOutline3);
+
+    for (int i = 0; i < 20; i++) {
+        for (int j = 0; j < 10; j++) {
+            window.draw(tetrisGrid[i][j].getBox());
+            if (tetrisGrid[i][j].isOccupied()) {
+                tetrisGrid[i][j].drawSprite(window);
+            }
+        }
+    }
 }
