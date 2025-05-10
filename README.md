@@ -37,6 +37,4 @@ If you would like to run this project on your owm machine, you can build it with
 
 ## Contact
 
-[Your Email Address]
-[Your LinkedIn Profile (Optional)]
-[Your GitHub Profile (Optional)]
+* **Email:** crapocolton@gmail.com
